@@ -97,8 +97,10 @@ async function onLoadMore() {
   const imagesValue = document.body.querySelectorAll('.photo-card');
   if (images.totalHits === imagesValue.length) {
     loadMoreButton.style.display = 'none';
+  } else if (images.totalHits < imagesValue.length) {
     Notify.failure(
       "We're sorry, but you've reached the end of search results."
     );
+    loadMoreButton.style.display = 'none';
   }
-}
+  }
